@@ -4093,7 +4093,11 @@ module Stupidedi
               "ON" => "Customer Order Number",
               "JS" => "Job Sequence Number",
               "VV" => "Motor Vehicle ID Number",
-              "ZZ" => "Mutually Defined"))
+              "ZZ" => "Mutually Defined",
+              "UP" => "U.P.C./EAN Case Code",
+              "IN" => "Buyer's Item Number",
+              "IT" => "Buyer's Style Number",
+              "UI" => "U.P.C. Consumer Package"))
 
           E236  = t::ID.new(:E236 , "Price Identifier Code"                , 3, 3)
           E241  = t::ID.new(:E241 , "Protective Service Code"              , 1, 4)

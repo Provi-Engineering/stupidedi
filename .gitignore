@@ -3,3 +3,4 @@ doc/generated
 coverage
 .bundle
 .ruby-version
+*.sw*
