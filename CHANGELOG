@@ -1,7 +1,19 @@
-v 1.2.18 - wip
+v 1.2.20 - Oct 23, 2018
+  - Json Writer functionality - Traverse stupidedit internal tree to a ruby hash
+  - Ruby 2.5.3 support
+
+v 1.2.19 - Oct 8, 2018
+  - EDI 276 support - Health Care Claim Status Inquiry
+    X212-HR276
+
+v 1.2.18 - 
   - SH856 rework
   - PR855 support (v4010) 
-
+  - This change fixes this issue, as if decimal is an empty string, it will be changed to 0 before to_d is called on it
+    https://github.com/irobayna/stupidedi/pull/132
+    Update  lib/stupidedi/versions/functional_groups/004010/element_types/time_val.rb
+    
+    
 v 1.2.17 - Aug 4, 2018
   - EDI 270 / 271 support - Health Care Eligibility Benefit Inquiry and Response
     X279-HS270

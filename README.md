@@ -233,6 +233,8 @@ Perform validation on a file
 
 ### Generating, Writing
 
+#### X12 Writer
+
 ```ruby
 require "stupidedi"
 
@@ -300,6 +302,30 @@ b.machine.zipper.tap do |z|
   print w.write()
 end
 ```
+
+#### HTML writer
+
+ As shown above `Stupidedi::Writer::Default` will output data encoded in plain x12 format. While `Stupidedi::Writer::Claredi` will output a formatted HTML string.
+
+`Stupidedi::Writer::Claredi#write` operates on `StringIO`.
+
+```ruby
+b.machine.zipper.tap do |z|
+  w = Stupidedi::Writer::Claredi.new(z.root)
+
+  File.open('output.html', 'w') { |f| f.write w.write }
+end
+```
+
+#### Json (Hash)  Writer
+
+Converting the tree to a JSON document is intentionally not included in the library. However this still may be implemented utilizing the stupidedi API.
+
+[Here](https://github.com/irobayna/stupidedi/blob/master/notes/json_writer/json.rb) is one of the possible ways to implement this.
+
+The shown approach allows to define custom traversing logic for the nodes with ability to change hash keys and values to whatever is needed.
+
+Please refer to [this readme](https://github.com/irobayna/stupidedi/blob/master/notes/json_writer/json.MD) and [these nodes implementation](https://github.com/irobayna/stupidedi/blob/master/notes/json_writer/json/) for more information.
 
 ### Reading, Traversing
 
