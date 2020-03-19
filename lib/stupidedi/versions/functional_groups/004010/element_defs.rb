@@ -4094,7 +4094,6 @@ module Stupidedi
               "JS" => "Job Sequence Number",
               "VV" => "Motor Vehicle ID Number",
               "ZZ" => "Mutually Defined",
-              "UP" => "U.P.C./EAN Case Code",
               "IN" => "Buyer's Item Number",
               "IT" => "Buyer's Style Number",
               "UI" => "U.P.C. Consumer Package"))
