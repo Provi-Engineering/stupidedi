@@ -20,6 +20,7 @@ module Stupidedi
         autoload :BEN, "stupidedi/versions/005010/segment_defs/BEN"
         autoload :BGN, "stupidedi/versions/005010/segment_defs/BGN"
         autoload :BHT, "stupidedi/versions/005010/segment_defs/BHT"
+        autoload :BIG, "stupidedi/versions/005010/segment_defs/BIG"
         autoload :BPR, "stupidedi/versions/005010/segment_defs/BPR"
         autoload :CAS, "stupidedi/versions/005010/segment_defs/CAS"
         autoload :CL1, "stupidedi/versions/005010/segment_defs/CL1"

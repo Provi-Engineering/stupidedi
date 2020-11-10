@@ -56,6 +56,7 @@ module Stupidedi
             "XX" => s::CodeList.external("537"),
             "ZZ" => "Mutually Defined"))
         E67   = t::AN.new(:E67  , "Identification Code"                  , 2, 80)
+        E76   = t::AN.new(:E76  , "Invoice Number"                       , 1, 22)
         E81   = t:: R.new(:E81  , "Weight"                               , 1, 10)
         E93   = t::AN.new(:E93  , "Name"                                 , 1, 60)
         E96   = t::Nn.new(:E96  , "Number of Included Segments"          , 1, 10, 0)
@@ -207,6 +208,7 @@ module Stupidedi
             "QM"  => "Dialysis Centers",
             "QV"  => "Group Practice",
             "R3"  => "Next Scheduled Destination",
+            "RE"  => "Remit To",
             "S1"  => "Parent",
             "S3"  => "Custodial Parent",
             "SEP" => "Secondary Payer",
@@ -795,6 +797,7 @@ module Stupidedi
             "PS" => s::CodeList.external("51"),
             "RJ" => s::CodeList.external("DOD1")))
         E310  = t::ID.new(:E310 , "Location Identifier"                  , 1, 30)
+        E324  = t::AN.new(:E324 , "Purchase Order Number"                , 1, 22)
         E329  = t::AN.new(:E329 , "Transaction Set Control Number"       , 4, 9)
         E332  = t:: R.new(:E332 , "Percent, Decimal Format"              , 1, 6)
         E337  = t::TM.new(:E337 , "Time"                                 , 4, 8)
@@ -817,9 +820,11 @@ module Stupidedi
         E355  = t::ID.new(:E355 , "Unit or Basis for Measurement Code"   , 2, 2,
           s::CodeList.build(
             "01" => "Actual Pounds",
+            "CA" => "Case",
             "DA" => "Days",
             "DH" => "Miles",
             "DK" => "Kilometers",
+            "EA" => "Each",
             "F2" => "International Unit",
             "GR" => "Gram",
             "LB" => "Pound",
@@ -831,6 +836,7 @@ module Stupidedi
             "WK" => "Week",
             "VS" => "Visit",
             "YR" => "Years"))
+        E358  = t:: R.new(:E358 , "Quantity Invoiced"                    , 1, 15)
         E363  = t::ID.new(:E363 , "Note Reference Code"                  , 3, 3,
           s::CodeList.build(
             "ADD" => "Additional Information",
@@ -1487,6 +1493,8 @@ module Stupidedi
             "31" => "Subrogation Demand",
             "CH" => "Chargeable",
             "DG" => "Response",
+            "DI" => "Debit Invoice",
+            "DR" => "Debit Memo",
             "NO" => "Notice",
             "P5" => "Predetermination - Medical",
             "P6" => "Predetermination - Dental",
