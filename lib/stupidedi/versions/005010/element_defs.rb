@@ -2443,6 +2443,7 @@ module Stupidedi
                                                                            4, 4,
           s::CodeList.build(
             "C090" => "Deposit Charges",
+            "D270" => "Fuel Surcharge",
             "D500" => "Handling",
             "F800" => "Promotional Allowance",
             "H770" => "State Tax"))
