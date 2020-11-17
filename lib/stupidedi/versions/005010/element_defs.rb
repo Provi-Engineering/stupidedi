@@ -759,6 +759,12 @@ module Stupidedi
             "WK" => s::CodeList.external("843"),
             "ZZ" => "Mutually Defined"))
         E236  = t::ID.new(:E236 , "Price Identifier Code"                , 3, 3)
+        E248  = t::ID.new(:E248 , "Allowance or Charge Indicator"        , 1, 1,
+          s::CodeList.build(
+            "A" => "Allowance",
+            "C" => "Charge",
+            "N" => "No Allowance or Charge",
+            "R" => "Allowance Request"))
         E280  = t:: R.new(:E280 , "Exchange Rate"                        , 4, 10)
         E289  = t::Nn.new(:E289 , "Multiple Price Quantity"              , 1, 2, 0)
         E305  = t::ID.new(:E305 , "Transaction Handling Code"            , 1, 2,
@@ -836,7 +842,7 @@ module Stupidedi
             "WK" => "Week",
             "VS" => "Visit",
             "YR" => "Years"))
-        E356  = t::Nn.new(:E356 , "Pack"                                 , 1, 6)
+        E356  = t::Nn.new(:E356 , "Pack"                                 , 1, 6, 0)
         E357  = t:: R.new(:E358 , "Size"                                 , 1, 8)
         E358  = t:: R.new(:E358 , "Quantity Invoiced"                    , 1, 15)
         E363  = t::ID.new(:E363 , "Note Reference Code"                  , 3, 3,
@@ -1399,6 +1405,7 @@ module Stupidedi
             "S" => "Semiannual",
             "U" => "Unknown"))
         E609  = t::Nn.new(:E609 , "Count"                                , 1, 9, 0)
+        E610  = t::Nn.new(:E610 , "Amount"                               , 1, 15, 2)
         E615  = t::ID.new(:E615 , "Time Period Qualifier"                , 1, 2,
           s::CodeList.build(
             "6"  => "Hour",
@@ -2432,6 +2439,13 @@ module Stupidedi
             "ZZ"  => "Mutually Defined"))
         E1271 = t::AN.new(:E1271, "Industry Code"                        , 1, 30,
           s::CodeList.external("508"))
+        E1300 = t::ID.new(:E1300, "Service, Promotion, Allowance, or Charge Code",
+                                                                           4, 4,
+          s::CodeList.build(
+            "C090" => "Deposit Charges",
+            "D500" => "Handling",
+            "F800" => "Promotional Allowance",
+            "H770" => "State Tax"))
         E1330 = t::ID.new(:E1330, "Dosage Form Code"                     , 2, 3,
           s::CodeList.build(
             "10" => "Tablet",
