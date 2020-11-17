@@ -836,6 +836,8 @@ module Stupidedi
             "WK" => "Week",
             "VS" => "Visit",
             "YR" => "Years"))
+        E356  = t::Nn.new(:E356 , "Pack"                                 , 1, 6)
+        E357  = t:: R.new(:E358 , "Size"                                 , 1, 8)
         E358  = t:: R.new(:E358 , "Quantity Invoiced"                    , 1, 15)
         E363  = t::ID.new(:E363 , "Note Reference Code"                  , 3, 3,
           s::CodeList.build(

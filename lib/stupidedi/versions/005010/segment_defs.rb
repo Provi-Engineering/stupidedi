@@ -114,6 +114,7 @@ module Stupidedi
         autoload :PLA, "stupidedi/versions/005010/segment_defs/PLA"
         autoload :PLB, "stupidedi/versions/005010/segment_defs/PLB"
         autoload :PM,  "stupidedi/versions/005010/segment_defs/PM"
+        autoload :PO4, "stupidedi/versions/005010/segment_defs/PO4"
         autoload :PRV, "stupidedi/versions/005010/segment_defs/PRV"
         autoload :PS1, "stupidedi/versions/005010/segment_defs/PS1"
         autoload :PWK, "stupidedi/versions/005010/segment_defs/PWK"
