@@ -457,6 +457,8 @@ module Stupidedi
             "LI" => "Line Item - Nissan Unique Code",
             "MP" => "Manufacturing Plant",
             "PJ" => "Party to Receive Correspondence",
+            "RE" => "Remit To,"
+            "RI" => "Remit To,"
             "SH" => "Shipper",
             "SF" => "Ship From",
             "ST" => "Ship To",
