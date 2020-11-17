@@ -143,6 +143,7 @@ module Stupidedi
         autoload :SV7, "stupidedi/versions/005010/segment_defs/SV7"
         autoload :SVC, "stupidedi/versions/005010/segment_defs/SVC"
         autoload :SVD, "stupidedi/versions/005010/segment_defs/SVD"
+        autoload :TDS, "stupidedi/versions/005010/segment_defs/TDS"
         autoload :TOO, "stupidedi/versions/005010/segment_defs/TOO"
         autoload :TRN, "stupidedi/versions/005010/segment_defs/TRN"
         autoload :TS2, "stupidedi/versions/005010/segment_defs/TS2"
