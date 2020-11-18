@@ -808,6 +808,11 @@ module Stupidedi
         E332  = t:: R.new(:E332 , "Percent, Decimal Format"              , 1, 6)
         E337  = t::TM.new(:E337 , "Time"                                 , 4, 8)
         E338  = t:: R.new(:E338 , "Terms Discount Percent"               , 1, 6)
+        E349  = t::ID.new(:E349 , "Item Description Type"                , 1, 1,
+          s::CodeList.build(
+            "F" => "Free-form",
+            "S" => "Structured",
+            "X" => "Semi-structured (Code and Text)"))
         E350  = t::AN.new(:E350 , "Assigned Identification"              , 1, 20)
         E352  = t::AN.new(:E352 , "Description"                          , 1, 80)
         E353  = t::ID.new(:E353 , "Transaction Set Purpose Code"         , 2, 2,
@@ -1706,6 +1711,8 @@ module Stupidedi
         E739  = t:: R.new(:E739 , "Measurement Value"                    , 1, 20)
         E740  = t:: R.new(:E740 , "Range Minimum"                        , 1, 20)
         E741  = t:: R.new(:E741 , "Range Maximum"                        , 1, 20)
+        E750  = t::ID.new(:E750 , "Product/Process Characteristic Code"  , 2, 3)
+        E751  = t::AN.new(:E751 , "Product Description Code"             , 1, 12)
         E752  = t::ID.new(:E752 , "Surface/Layer/Position Code"          , 2, 2)
         E753  = t::ID.new(:E753 , "Measurement Method or Device"         , 2, 4)
         E755  = t::ID.new(:E755 , "Report Type Code"                     , 2, 2,
@@ -1818,6 +1825,9 @@ module Stupidedi
           s::CodeList.build(
             "CCP" => "Cash Concentration/Disbursement plus Addenda (CCD+)(ACH)",
             "CTX" => "Corporate Trade Exchange (CTX) (ACH)"))
+        E819  = t::ID.new(:E819 , "Language Code"                        , 2, 3,
+          s::CodeList.external("102"))
+        E822  = t::AN.new(:E822 , "Source Subqualifier"                  , 1, 15)
         E875  = t::ID.new(:E875 , "Maintenance Type Code"                , 3, 3,
           s::CodeList.build(
             "001" => "Change",
