@@ -723,6 +723,7 @@ module Stupidedi
         E156  = t::ID.new(:E156 , "State or Province Code"               , 2, 2,
           s::CodeList.external("22"))
         E166  = t::AN.new(:E166 , "Address Information"                  , 1, 55)
+        E183  = t:: R.new(:E183 , "Volume"                               , 1, 8)
         E212  = t:: R.new(:E212 , "Unit Price"                           , 1, 17)
         E234  = t::AN.new(:E234 , "Product/Service ID"                   , 1, 48)
         E235  = t::ID.new(:E235 , "Product/Service ID Qualifier"         , 2, 2,
@@ -831,18 +832,29 @@ module Stupidedi
         E355  = t::ID.new(:E355 , "Unit or Basis for Measurement Code"   , 2, 2,
           s::CodeList.build(
             "01" => "Actual Pounds",
+            "BA" => "Bale",
+            "BG" => "Bag",
+            "BO" => "Bottle",
             "CA" => "Case",
+            "CN" => "Can",
+            "CT" => "Carton",
             "DA" => "Days",
             "DH" => "Miles",
             "DK" => "Kilometers",
+            "DS" => "Display",
+            "DZ" => "Dozen",
             "EA" => "Each",
             "F2" => "International Unit",
             "GR" => "Gram",
+            "KG" => "Kilogram",
             "LB" => "Pound",
             "ME" => "Milligram",
             "MJ" => "Minutes",
             "ML" => "Milliliter",
             "MO" => "Months",
+            "PK" => "Package",
+            "PL" => "Pallet/Unit Load",
+            "RL" => "Roll",
             "UN" => "Units",
             "WK" => "Week",
             "VS" => "Visit",
@@ -1838,6 +1850,7 @@ module Stupidedi
             "026" => "Correction",
             "030" => "Audit or Compare",
             "032" => "Employee Information Not Applicable"))
+        E382  = t:: R.new(:E382 , "Number of Units Shipped"              , 1, 10)
         E889  = t::ID.new(:E889 , "Follow-up Action Code"                , 1, 1,
           s::CodeList.build(
             "C" => "Please Correct and Resubmit",
