@@ -344,6 +344,7 @@ module Stupidedi
             "IG"  => "Insurance Policy Number",
             "IJ"  => "Standard Industry Classification (SIC) Code",
             "IK"  => "Invoice Number",
+            "IV"  => "Seller's Invoice Number",
             "JD"  => "User Identification",
             "LOI" => s::CodeList.external("663"),
             "LU"  => "Location Number",
