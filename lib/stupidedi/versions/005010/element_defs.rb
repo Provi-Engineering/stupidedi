@@ -891,6 +891,7 @@ module Stupidedi
             "090" => "Report Start",
             "091" => "Report End",
             "096" => "Discharge",
+            "097" => "Transaction Creation",
             "102" => "Issue",
             "139" => "Estimated",
             "150" => "Service Period Start",
