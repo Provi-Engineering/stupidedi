@@ -56,6 +56,7 @@ module Stupidedi
             "XX" => s::CodeList.external("537"),
             "ZZ" => "Mutually Defined"))
         E67   = t::AN.new(:E67  , "Identification Code"                  , 2, 80)
+        E76   = t::AN.new(:E76  , "Invoice Number"                       , 1, 22)
         E81   = t:: R.new(:E81  , "Weight"                               , 1, 10)
         E93   = t::AN.new(:E93  , "Name"                                 , 1, 60)
         E96   = t::Nn.new(:E96  , "Number of Included Segments"          , 1, 10, 0)
@@ -207,6 +208,7 @@ module Stupidedi
             "QM"  => "Dialysis Centers",
             "QV"  => "Group Practice",
             "R3"  => "Next Scheduled Destination",
+            "RE"  => "Remit To",
             "S1"  => "Parent",
             "S3"  => "Custodial Parent",
             "SEP" => "Secondary Payer",
@@ -723,6 +725,7 @@ module Stupidedi
         E156  = t::ID.new(:E156 , "State or Province Code"               , 2, 2,
           s::CodeList.external("22"))
         E166  = t::AN.new(:E166 , "Address Information"                  , 1, 55)
+        E183  = t:: R.new(:E183 , "Volume"                               , 1, 8)
         E212  = t:: R.new(:E212 , "Unit Price"                           , 1, 17)
         E234  = t::AN.new(:E234 , "Product/Service ID"                   , 1, 48)
         E235  = t::ID.new(:E235 , "Product/Service ID Qualifier"         , 2, 2,
@@ -759,6 +762,12 @@ module Stupidedi
             "WK" => s::CodeList.external("843"),
             "ZZ" => "Mutually Defined"))
         E236  = t::ID.new(:E236 , "Price Identifier Code"                , 3, 3)
+        E248  = t::ID.new(:E248 , "Allowance or Charge Indicator"        , 1, 1,
+          s::CodeList.build(
+            "A" => "Allowance",
+            "C" => "Charge",
+            "N" => "No Allowance or Charge",
+            "R" => "Allowance Request"))
         E280  = t:: R.new(:E280 , "Exchange Rate"                        , 4, 10)
         E289  = t::Nn.new(:E289 , "Multiple Price Quantity"              , 1, 2, 0)
         E305  = t::ID.new(:E305 , "Transaction Handling Code"            , 1, 2,
@@ -797,10 +806,16 @@ module Stupidedi
             "PS" => s::CodeList.external("51"),
             "RJ" => s::CodeList.external("DOD1")))
         E310  = t::ID.new(:E310 , "Location Identifier"                  , 1, 30)
+        E324  = t::AN.new(:E324 , "Purchase Order Number"                , 1, 22)
         E329  = t::AN.new(:E329 , "Transaction Set Control Number"       , 4, 9)
         E332  = t:: R.new(:E332 , "Percent, Decimal Format"              , 1, 6)
         E337  = t::TM.new(:E337 , "Time"                                 , 4, 8)
         E338  = t:: R.new(:E338 , "Terms Discount Percent"               , 1, 6)
+        E349  = t::ID.new(:E349 , "Item Description Type"                , 1, 1,
+          s::CodeList.build(
+            "F" => "Free-form",
+            "S" => "Structured",
+            "X" => "Semi-structured (Code and Text)"))
         E350  = t::AN.new(:E350 , "Assigned Identification"              , 1, 20)
         E352  = t::AN.new(:E352 , "Description"                          , 1, 80)
         E353  = t::ID.new(:E353 , "Transaction Set Purpose Code"         , 2, 2,
@@ -819,20 +834,36 @@ module Stupidedi
         E355  = t::ID.new(:E355 , "Unit or Basis for Measurement Code"   , 2, 2,
           s::CodeList.build(
             "01" => "Actual Pounds",
+            "BA" => "Bale",
+            "BG" => "Bag",
+            "BO" => "Bottle",
+            "CA" => "Case",
+            "CN" => "Can",
+            "CT" => "Carton",
             "DA" => "Days",
             "DH" => "Miles",
             "DK" => "Kilometers",
+            "DS" => "Display",
+            "DZ" => "Dozen",
+            "EA" => "Each",
             "F2" => "International Unit",
             "GR" => "Gram",
+            "KG" => "Kilogram",
             "LB" => "Pound",
             "ME" => "Milligram",
             "MJ" => "Minutes",
             "ML" => "Milliliter",
             "MO" => "Months",
+            "PK" => "Package",
+            "PL" => "Pallet/Unit Load",
+            "RL" => "Roll",
             "UN" => "Units",
             "WK" => "Week",
             "VS" => "Visit",
             "YR" => "Years"))
+        E356  = t::Nn.new(:E356 , "Pack"                                 , 1, 6, 0)
+        E357  = t:: R.new(:E358 , "Size"                                 , 1, 8)
+        E358  = t:: R.new(:E358 , "Quantity Invoiced"                    , 1, 15)
         E363  = t::ID.new(:E363 , "Note Reference Code"                  , 3, 3,
           s::CodeList.build(
             "ADD" => "Additional Information",
@@ -1394,6 +1425,7 @@ module Stupidedi
             "S" => "Semiannual",
             "U" => "Unknown"))
         E609  = t::Nn.new(:E609 , "Count"                                , 1, 9, 0)
+        E610  = t::Nn.new(:E610 , "Amount"                               , 1, 15, 2)
         E615  = t::ID.new(:E615 , "Time Period Qualifier"                , 1, 2,
           s::CodeList.build(
             "6"  => "Hour",
@@ -1490,6 +1522,8 @@ module Stupidedi
             "31" => "Subrogation Demand",
             "CH" => "Chargeable",
             "DG" => "Response",
+            "DI" => "Debit Invoice",
+            "DR" => "Debit Memo",
             "NO" => "Notice",
             "P5" => "Predetermination - Medical",
             "P6" => "Predetermination - Dental",
@@ -1692,6 +1726,8 @@ module Stupidedi
         E739  = t:: R.new(:E739 , "Measurement Value"                    , 1, 20)
         E740  = t:: R.new(:E740 , "Range Minimum"                        , 1, 20)
         E741  = t:: R.new(:E741 , "Range Maximum"                        , 1, 20)
+        E750  = t::ID.new(:E750 , "Product/Process Characteristic Code"  , 2, 3)
+        E751  = t::AN.new(:E751 , "Product Description Code"             , 1, 12)
         E752  = t::ID.new(:E752 , "Surface/Layer/Position Code"          , 2, 2)
         E753  = t::ID.new(:E753 , "Measurement Method or Device"         , 2, 4)
         E755  = t::ID.new(:E755 , "Report Type Code"                     , 2, 2,
@@ -1804,6 +1840,9 @@ module Stupidedi
           s::CodeList.build(
             "CCP" => "Cash Concentration/Disbursement plus Addenda (CCD+)(ACH)",
             "CTX" => "Corporate Trade Exchange (CTX) (ACH)"))
+        E819  = t::ID.new(:E819 , "Language Code"                        , 2, 3,
+          s::CodeList.external("102"))
+        E822  = t::AN.new(:E822 , "Source Subqualifier"                  , 1, 15)
         E875  = t::ID.new(:E875 , "Maintenance Type Code"                , 3, 3,
           s::CodeList.build(
             "001" => "Change",
@@ -1814,6 +1853,7 @@ module Stupidedi
             "026" => "Correction",
             "030" => "Audit or Compare",
             "032" => "Employee Information Not Applicable"))
+        E382  = t:: R.new(:E382 , "Number of Units Shipped"              , 1, 10)
         E889  = t::ID.new(:E889 , "Follow-up Action Code"                , 1, 1,
           s::CodeList.build(
             "C" => "Please Correct and Resubmit",
@@ -2425,6 +2465,14 @@ module Stupidedi
             "ZZ"  => "Mutually Defined"))
         E1271 = t::AN.new(:E1271, "Industry Code"                        , 1, 30,
           s::CodeList.external("508"))
+        E1300 = t::ID.new(:E1300, "Service, Promotion, Allowance, or Charge Code",
+                                                                           4, 4,
+          s::CodeList.build(
+            "C090" => "Deposit Charges",
+            "D270" => "Fuel Surcharge",
+            "D500" => "Handling",
+            "F800" => "Promotional Allowance",
+            "H770" => "State Tax"))
         E1330 = t::ID.new(:E1330, "Dosage Form Code"                     , 2, 3,
           s::CodeList.build(
             "10" => "Tablet",

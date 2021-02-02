@@ -14,6 +14,8 @@ module Stupidedi
           NotUsed     = Common::Implementations::ElementReqs::NotUsed
         end
 
+        autoload :IN810, "stupidedi/transaction_sets/005010/implementations/IN810"
+
         module X212
           autoload :HR276,  "stupidedi/transaction_sets/005010/implementations/X212-HR276"
         end

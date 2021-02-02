@@ -167,6 +167,8 @@ module Stupidedi
           x.register("004010", "SQ", "866") { Stupidedi::TransactionSets::FortyTen::Standards::SQ866 }
           x.register("004010", "FA", "997") { Stupidedi::TransactionSets::FortyTen::Standards::FA997 }
           x.register("004010", "SC", "832") { Stupidedi::TransactionSets::FortyTen::Standards::SC832 }
+
+          x.register("005010", "IN", "810") { Stupidedi::TransactionSets::FiftyTen::Standards::IN810 }
         end
       end
     end
