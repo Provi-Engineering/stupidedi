@@ -25,6 +25,8 @@ module Stupidedi
             "46" => "Electronic Transmitter Identification Number (ETIN)",
             "51" => s::CodeList.external("51"),
             "58" => "@todo",
+            "91" => "Assigned By Seller or Seller's Agent",
+            "92" => "Assigned By Buyer or Buyer's Agent",
             "94" => "Code assigned by the organization that is the ultimate destination of the transaction set",
             "AC" => "Attachment Control Number",
             "AD" => "Blue Cross Blue Shield Associtation Plan Code",
