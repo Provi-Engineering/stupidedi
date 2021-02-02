@@ -1330,7 +1330,7 @@ module Stupidedi
             "3" => "@todo"))
         E482  = t::ID.new(:E482 , "Payment Action Code"                      , 2, 2,
           s::CodeList.build(
-            "PI" => "Voter Registration Information (280)")),
+            "PI" => "Voter Registration Information (280)"))
         E499  = t::AN.new(:E499 , "Condition Value"                      , 1, 10)
         E506  = t::ID.new(:E506 , "DFI Identification Number Qualifier"  , 2, 2,
           s::CodeList.build(
