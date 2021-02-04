@@ -25,6 +25,8 @@ module Stupidedi
             "46" => "Electronic Transmitter Identification Number (ETIN)",
             "51" => s::CodeList.external("51"),
             "58" => "@todo",
+            "91" => "Assigned By Seller or Seller's Agent",
+            "92" => "Assigned By Buyer or Buyer's Agent",
             "94" => "Code assigned by the organization that is the ultimate destination of the transaction set",
             "AC" => "Attachment Control Number",
             "AD" => "Blue Cross Blue Shield Associtation Plan Code",
@@ -1326,6 +1328,9 @@ module Stupidedi
             "1" => "Current Transaction Trace Numbers",
             "2" => "Referenced Transaction Trace Numbers",
             "3" => "@todo"))
+        E482  = t::ID.new(:E482 , "Payment Action Code"                      , 2, 2,
+          s::CodeList.build(
+            "PI" => "Voter Registration Information (280)"))
         E499  = t::AN.new(:E499 , "Condition Value"                      , 1, 10)
         E506  = t::ID.new(:E506 , "DFI Identification Number Qualifier"  , 2, 2,
           s::CodeList.build(
