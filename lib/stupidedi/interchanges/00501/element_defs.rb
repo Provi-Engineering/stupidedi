@@ -69,7 +69,9 @@ module Stupidedi
         I07 = c::SpecialAN.new(:I07, "Interchange Receiver ID",          15, 15)
         I08 = t::DT.new(:I08, "Interchange Date",                         6,  6)
         I09 = t::TM.new(:I09, "Interchange Time",                         4,  4)
-        I10 = t::ID.new(:I10, "Interchange Control Standards ID",         1,  1)
+        I10 = t::ID.new(:I10, "Interchange Control Standards Identifier", 1,  1,
+          s::CodeList.build(
+            "U" => "U.S. EDI Community of ASC X12, TDCC, and UCS"))
         I11 = t::ID.new(:I11, "Interchange Control Version Number",       5,  5,
           s::CodeList.build(
             "00501" => "Standards Approved for Publication by ASC X12 Procedures Review Board through October 2003"))
