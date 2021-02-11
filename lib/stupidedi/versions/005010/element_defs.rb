@@ -811,14 +811,31 @@ module Stupidedi
         E324  = t::AN.new(:E324 , "Purchase Order Number"                , 1, 22)
         E329  = t::AN.new(:E329 , "Transaction Set Control Number"       , 4, 9)
         E332  = t:: R.new(:E332 , "Percent, Decimal Format"              , 1, 6)
+        E333  = t::ID.new(:E333 , "Terms Basis Date Code"                , 2, 2,
+          s::CodeList.build(
+            "AA" => "Prepaid and Add",
+            "AB" => "Prepaid and Bill",
+            "AE" => "Prepaid and Equalized",
+            "NS" => "No Material Shipped",
+            "OR" => "Collect From Origin",
+            "TB" => "Prepaid To Border",
+            "TD" => "Prepaid to Destination",
+            "TP" => "Prepaid To Port"))
+        E336  = t::ID.new(:E336 , "Terms Type Code"                      , 2, 2,
+          s::CodeList.build(
+            "09" => "Proximo",
+            "10" => "Instant",
+            "30" => "Semi-Monthly - Nissan Unique Code"))
         E337  = t::TM.new(:E337 , "Time"                                 , 4, 8)
         E338  = t:: R.new(:E338 , "Terms Discount Percent"               , 1, 6)
+        E342  = t:: R.new(:E342 , "Percent of Invoice Payable"           , 1, 5)
         E349  = t::ID.new(:E349 , "Item Description Type"                , 1, 1,
           s::CodeList.build(
             "F" => "Free-form",
             "S" => "Structured",
             "X" => "Semi-structured (Code and Text)"))
         E350  = t::AN.new(:E350 , "Assigned Identification"              , 1, 20)
+        E351  = t::Nn.new(:E351 , "Terms Discount Days Due"              , 1, 3, 0)
         E352  = t::AN.new(:E352 , "Description"                          , 1, 80)
         E353  = t::ID.new(:E353 , "Transaction Set Purpose Code"         , 2, 2,
           s::CodeList.build(
@@ -914,6 +931,8 @@ module Stupidedi
             "RP" => "Responsible Person",
             "PQ" => "Parent or Guardian",
             "SK" => "School Clerk"))
+
+        E370  = t::DT.new(:E370 , "Terms Discount Due Date"              , 6, 6)
         E373  = t::DT.new(:E373 , "Date"                                 , 8, 8)
         E374  = t::ID.new(:E374 , "Date/Time Qualifier"                  , 3, 3,
           s::CodeList.build(
@@ -1071,6 +1090,7 @@ module Stupidedi
             "WU" => "Unspecified Recovery"))
         E429  = t::AN.new(:E429 , "Check Number"                         , 1, 16)
         E443  = t::AN.new(:E443 , "Contract Inquiry Reference"           , 1, 20)
+        E446  = t::DT.new(:E446, "Terms Net Due Date"                    , 8, 8)
         E447  = t::AN.new(:E447 , "Loop Identifier Code"                 , 1, 4)
         E449  = t::AN.new(:E449 , "Fixed Format Information"             , 1, 80)
         E478  = t::ID.new(:E478 , "Credit/Debit Flag Code"               , 1, 1,
@@ -3250,7 +3270,6 @@ module Stupidedi
         #     "Z" => "Mutually Defined"))
         E9998 = t::AN.new(:E9998, "Context Reference"                    , 1, 35)
         E9999 = t::AN.new(:E9999, "Context Name"                         , 1, 35)
-        E446  = t::DT.new(:E446, "Terms Net Due Date"                    , 8, 8)
 
         C001 = Schema::CompositeElementDef.build(:C001,
           "Composite Unit of Measure",
