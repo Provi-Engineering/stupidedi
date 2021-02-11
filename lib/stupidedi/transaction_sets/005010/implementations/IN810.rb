@@ -23,7 +23,7 @@ module Stupidedi
               b::Element(e::Required,    "Purchase Order Number"),
               b::Element(e::Situational, "Transaction Type Code")),
 
-            b::Segment(130, s::ITD, "Invoice Term Date", r::Required, d::RepeatCount.bounded(1),
+            b::Segment(130, s::ITD, "Invoice Term Date", r::Optional, d::RepeatCount.bounded(1),
               b::Element(e::Required,    "Due Date")),
 
             d::LoopDef.build("N1", d::RepeatCount.bounded(200),

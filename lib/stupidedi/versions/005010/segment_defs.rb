@@ -81,6 +81,7 @@ module Stupidedi
         autoload :INV, "stupidedi/versions/005010/segment_defs/INV"
         autoload :ISS, "stupidedi/versions/005010/segment_defs/ISS"
         autoload :IT1, "stupidedi/versions/005010/segment_defs/IT1"
+        autoload :ITD, "stupidedi/versions/005010/segment_defs/ITD"
         autoload :K3,  "stupidedi/versions/005010/segment_defs/K3"
         autoload :LC,  "stupidedi/versions/005010/segment_defs/LC"
         autoload :LE,  "stupidedi/versions/005010/segment_defs/LE"

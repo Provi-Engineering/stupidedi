@@ -3250,6 +3250,7 @@ module Stupidedi
         #     "Z" => "Mutually Defined"))
         E9998 = t::AN.new(:E9998, "Context Reference"                    , 1, 35)
         E9999 = t::AN.new(:E9999, "Context Name"                         , 1, 35)
+        E446  = t::DT.new(:E446, "Terms Net Due Date"                    , 8, 8)
 
         C001 = Schema::CompositeElementDef.build(:C001,
           "Composite Unit of Measure",
