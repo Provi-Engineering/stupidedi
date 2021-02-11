@@ -45,9 +45,10 @@ module Stupidedi
                 b::Element(e::Optional, "Country Code"),
                 b::Element(e::Optional, "Location Qualifier"),
                 b::Element(e::Optional, "Location Identifier"),
-                b::Element(e::Optional, "Country Subdivision Code"))),
+                b::Element(e::Optional, "Country Subdivision Code"))
+            ),
 
-            b::Segment(130, s::ITD, "Invoice Term Date", r::Optional, d::RepeatCount.bounded(1),
+            b::Segment(1300, s::ITD, "Invoice Term Date", r::Optional, d::RepeatCount.bounded(1),
               b::Element(e::Required,    "Due Date"))),
 
           d::TableDef.header("Detail",
