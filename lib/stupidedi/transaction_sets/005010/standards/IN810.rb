@@ -11,7 +11,7 @@ module Stupidedi
         IN810 = b.build("IN", "810", "Invoice",
           d::TableDef.header("1 - Heading",
             s:: ST.use(100, r::Mandatory, d::RepeatCount.bounded(1)),
-            s::ITD.use(130, r::Optional, d::RepeatCount.bounded(1)),
+            s::ITD.use(130, r::Mandatory, d::RepeatCount.bounded(1)),
             s::BIG.use(200, r::Mandatory, d::RepeatCount.bounded(1)),
 
             d::LoopDef.build("N1", d::RepeatCount.bounded(200),
