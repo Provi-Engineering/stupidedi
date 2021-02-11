@@ -23,9 +23,6 @@ module Stupidedi
               b::Element(e::Required,    "Purchase Order Number"),
               b::Element(e::Situational, "Transaction Type Code")),
 
-            b::Segment(130, s::ITD, "Invoice Term Date", r::Optional, d::RepeatCount.bounded(1),
-              b::Element(e::Required,    "Due Date")),
-
             d::LoopDef.build("N1", d::RepeatCount.bounded(200),
               b::Segment(700,  s:: N1, "Party Identification", r::Required, d::RepeatCount.bounded(1),
                 b::Element(e::Required, "Entity Identifier Code"),
@@ -48,7 +45,10 @@ module Stupidedi
                 b::Element(e::Optional, "Country Code"),
                 b::Element(e::Optional, "Location Qualifier"),
                 b::Element(e::Optional, "Location Identifier"),
-                b::Element(e::Optional, "Country Subdivision Code")))),
+                b::Element(e::Optional, "Country Subdivision Code"))),
+
+            b::Segment(130, s::ITD, "Invoice Term Date", r::Optional, d::RepeatCount.bounded(1),
+              b::Element(e::Required,    "Due Date"))),
 
           d::TableDef.header("Detail",
             d::LoopDef.build("IT1", d::RepeatCount.bounded(200000),
