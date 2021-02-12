@@ -17,7 +17,9 @@ module Stupidedi
               s:: N1.use(700,  r::Mandatory,  d::RepeatCount.bounded(1)),
               s:: N2.use(800,  r::Optional,   d::RepeatCount.bounded(1)),
               s:: N3.use(900,  r::Optional,   d::RepeatCount.bounded(1)),
-              s:: N4.use(1000, r::Optional,   d::RepeatCount.bounded(1)))),
+              s:: N4.use(1000, r::Optional,   d::RepeatCount.bounded(1))),
+
+            s::ITD.use(1300, r::Optional, d::RepeatCount.bounded(1))),
 
           d::TableDef.header("2 - Detail",
             d::LoopDef.build("IT1", d::RepeatCount.bounded(200000),
