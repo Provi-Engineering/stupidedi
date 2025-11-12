@@ -6,3 +6,6 @@ build/generated
 *.swp
 *.swo
 *.vim
+
+# macOS stuff
+.DS_Store
