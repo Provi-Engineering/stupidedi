@@ -61,7 +61,7 @@ module Stupidedi
                 b::Element(e::Situational, "Unit or Basis for Measurement Code", b::Values("CA", "EA", "LB")),
                 b::Element(e::Situational, "Unit Price"),
                 b::Element(e::Situational, "Basis of Unit Price Code", b::values("PE","PP","UM")),
-                b::Element(e::Situational, "Product/Service ID Qualifier", b::Values("VN", "VC")),
+                b::Element(e::Situational, "Product/Service ID Qualifier", b::Values("VN", "VC", "IN")),
                 b::Element(e::Situational, "Product/Service ID"))),
             d::LoopDef.build("PID", d::RepeatCount.bounded(1000),
               b::Segment(50, s::PID, "Product/Item Description", r::Situational, d::RepeatCount.bounded(1),

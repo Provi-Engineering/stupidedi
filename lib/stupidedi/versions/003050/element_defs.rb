@@ -4122,6 +4122,7 @@ module Stupidedi
         E235  = t::ID.new(:E235 , "Product/Service ID Qualifier"         , 2, 2,
           s::CodeList.build(
             "C4" => "Design Note Number - Nissan Unique Code",
+            "IN" => "Item Number (General)",
             "VN" => "Vendor's (Seller's) Item Number",
             "VC" => "Vendor's (Seller's) Catalog Number",
             "VP" => "Vendor's (Seller's) Part Number",

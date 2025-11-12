@@ -40,7 +40,7 @@ module Stupidedi
                 b::Element(e::Situational, "Unit or Basis for Measurement Code"),
                 b::Element(e::Situational, "Unit Price"),
                 b::Element(e::NotUsed,     "Unknown"),
-                b::Element(e::Situational, "Product/Service ID Qualifier",b::Values("BP")),
+                b::Element(e::Situational, "Product/Service ID Qualifier", b::Values("BP", "IN")),
                 b::Element(e::Situational, "Product/Service ID - Nissan Part Number")),
 
               d::LoopDef.build("PID", d::RepeatCount.bounded(1000),
