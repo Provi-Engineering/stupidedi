@@ -99,7 +99,7 @@ module Stupidedi
                 b::Element(e::Required,    "Unit or Basis for Measurement Code",b::Values("EA")),
                 b::Element(e::Situational, "Unit Price"),
                 b::Element(e::NotUsed, "Unknown"),
-                b::Element(e::Situational, "Product/Service ID Qualifier - Buyer's Part Number Qualifier",b::Values("BP")),
+                b::Element(e::Situational, "Product/Service ID Qualifier - Buyer's Part Number Qualifier",b::Values("BP", "IN")),
                 b::Element(e::Situational, "Product/Service ID - Nissan Part Number"),
                 b::Element(e::Situational, "Product/Service ID Qualifier",b::Values("C4")),
                 b::Element(e::Situational, "Product/Service ID - Design Note Number")),
