@@ -21,6 +21,7 @@ module Stupidedi
           s::CodeList.build(
             "01" => "Duns (Dun & Bradstreet)",
             "02" => "SCAC (Standard Carrier Alpha Code)",
+            "09" => "GS1 Company Prefix",
             "12" => "Phone (Telephone Companies)",
             "14" => "Duns Plus Suffix",
             "20" => s::CodeList.external("121"),
