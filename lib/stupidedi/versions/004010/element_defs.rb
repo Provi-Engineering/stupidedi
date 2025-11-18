@@ -4707,6 +4707,7 @@ module Stupidedi
             "FA" => "Fahrenheit",
             "CA" => "Case",
             "EA" => "Each",
+            "BO" => "Bottle",
             "LB" => "Pound",
             "PC" => "Piece",
             "PL" => "Pallet/Unit Load",
