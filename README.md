@@ -2,7 +2,7 @@
 
 This repository is Provi's fork of the upstream gem [irobayna/stupidedi](https://github.com/irobayna/stupidedi). It parses, generates, and validates ASC X12 EDI documents.
 
-[![Build Status](https://secure.travis-ci.org/irobayna/stupidedi.png?branch=master)](http://travis-ci.org/irobayna/stupidedi) [![GitHub version](https://badge.fury.io/rb/stupidedi.svg)](http://badge.fury.io/gh/irobayna%2Fstupidedi) [![Code Climate](https://codeclimate.com/github/irobayna/stupidedi.png)](https://codeclimate.com/github/irobayna/stupidedi) [![Inline docs](http://inch-ci.org/github/irobayna/stupidedi.png?branch=master)](http://inch-ci.org/github/irobayna/stupidedi)
+[![GitHub version](https://badge.fury.io/rb/stupidedi.svg)](http://badge.fury.io/gh/irobayna%2Fstupidedi) [![Code Climate](https://codeclimate.com/github/irobayna/stupidedi.png)](https://codeclimate.com/github/irobayna/stupidedi) [![Inline docs](http://inch-ci.org/github/irobayna/stupidedi.png?branch=master)](http://inch-ci.org/github/irobayna/stupidedi)
 
 ![Screenshot](https://raw.github.com/irobayna/stupidedi/master/doc/images/edi-pp.png)
 
@@ -396,4 +396,4 @@ Examples tagged `:ruby => "1.8"` or `"1.9"` are excluded unless `RUBY_VERSION` m
 
 ## Continuous Integration
 
-CircleCI runs `bundle install` and `bundle exec rake spec` on `cimg/ruby:2.7`, then scans dependencies and source with Snyk. The leftover `.travis.yml` from upstream is not used for this fork.
+CircleCI runs `bundle install` and `bundle exec rake spec` on `cimg/ruby:2.7`, then scans dependencies and source with Snyk. Both jobs run on every pull request. On `master`, a failure or a green run posts to the `#retailer-experience-automation-events` Slack channel.
