@@ -1,4 +1,7 @@
 # Stupidedi
+
+This repository is Provi's fork of the upstream gem [irobayna/stupidedi](https://github.com/irobayna/stupidedi). It parses, generates, and validates ASC X12 EDI documents.
+
 [![Build Status](https://secure.travis-ci.org/irobayna/stupidedi.png?branch=master)](http://travis-ci.org/irobayna/stupidedi) [![GitHub version](https://badge.fury.io/rb/stupidedi.svg)](http://badge.fury.io/gh/irobayna%2Fstupidedi) [![Code Climate](https://codeclimate.com/github/irobayna/stupidedi.png)](https://codeclimate.com/github/irobayna/stupidedi) [![Inline docs](http://inch-ci.org/github/irobayna/stupidedi.png?branch=master)](http://inch-ci.org/github/irobayna/stupidedi)
 
 ![Screenshot](https://raw.github.com/irobayna/stupidedi/master/doc/images/edi-pp.png)
@@ -377,3 +380,20 @@ parser.first
 ```ruby
 rake spec
 ```
+
+## Running tests
+
+Install gems with Bundler, then run the RSpec suite through Rake. CircleCI uses Ruby 2.7 (`cimg/ruby:2.7`); locally this fork has been run on Ruby 2.6.8.
+
+```
+bundle install
+bundle exec rake spec
+```
+
+Coverage is not collected. `simplecov` is commented out in the Gemfile, and `spec/spec_helper.rb` rescues `LoadError` if the gem is missing.
+
+Examples tagged `:ruby => "1.8"` or `"1.9"` are excluded unless `RUBY_VERSION` matches that prefix, so they do not fail the suite on current Rubies.
+
+## Continuous Integration
+
+CircleCI runs `bundle install` and `bundle exec rake spec` on `cimg/ruby:2.7`, then scans dependencies and source with Snyk. The leftover `.travis.yml` from upstream is not used for this fork.
