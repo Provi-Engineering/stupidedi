@@ -1,0 +1,200 @@
+version: 2.1
+
+orbs:
+  snyk: snyk/snyk@2.3.0
+  slack: circleci/slack@6.1.3
+
+aliases:
+  - &slack_channel "C0BBFNNM9HA" # #retailer-experience-automation-events
+
+commands:
+  slack-fail:
+    parameters:
+      message:
+        type: string
+        default: "failure"
+    steps:
+      - slack/notify:
+          event: fail
+          channel: $SLACK_CHANNEL
+          # Jobs run on every branch so pull requests keep required checks.
+          # Only a broken master is worth waking the Slack channel.
+          branch_pattern: master
+          custom: |
+            {
+              "blocks": [
+                {
+                  "type": "header",
+                  "text": {
+                    "type": "plain_text",
+                    "text": ":circleci: Stupidedi. Branch: $CIRCLE_BRANCH. Failed on task: << parameters.message >> :circleci:",
+                    "emoji": true
+                  }
+                },
+                {
+                  "type": "section",
+                  "fields": [
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Project*: $CIRCLE_PROJECT_REPONAME"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Job Number*: $CIRCLE_BUILD_NUM"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "*When*: $(date +'%m/%d/%Y %T')"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Pull Request Number*: $CIRCLE_PULL_REQUEST"
+                    }
+                  ]
+                },
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "See the job in CircleCI ------------------------------------------------------------>"
+                  },
+                  "accessory": {
+                    "type": "button",
+                    "text": {
+                      "type": "plain_text",
+                      "text": "View Job",
+                      "emoji": true
+                    },
+                    "value": "View Job",
+                    "url": "$CIRCLE_BUILD_URL",
+                    "action_id": "button-action"
+                  }
+                }
+              ]
+            }
+
+  slack-pass:
+    parameters:
+      message:
+        type: string
+        default: "CI passed"
+    steps:
+      - slack/notify:
+          event: pass
+          channel: $SLACK_CHANNEL
+          # Jobs run on every branch so pull requests keep required checks.
+          # Only a green master is worth a pass notification.
+          branch_pattern: master
+          custom: |
+            {
+              "blocks": [
+                {
+                  "type": "header",
+                  "text": {
+                    "type": "plain_text",
+                    "text": ":white_check_mark: Stupidedi << parameters.message >>",
+                    "emoji": true
+                  }
+                },
+                {
+                  "type": "section",
+                  "fields": [
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Project*: $CIRCLE_PROJECT_REPONAME"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Branch*: $CIRCLE_BRANCH"
+                    }
+                  ]
+                },
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "See the job in CircleCI ------------------------------------------------------------>"
+                  },
+                  "accessory": {
+                    "type": "button",
+                    "text": {
+                      "type": "plain_text",
+                      "text": "View Job",
+                      "emoji": true
+                    },
+                    "value": "View Job",
+                    "url": "$CIRCLE_BUILD_URL",
+                    "action_id": "button-action"
+                  }
+                }
+              ]
+            }
+
+jobs:
+  test:
+    docker:
+      - image: cimg/ruby:2.7
+    environment:
+      SLACK_CHANNEL: *slack_channel
+    steps:
+      - checkout
+      - run:
+          name: Bundle install
+          command: bundle install
+      - run:
+          name: Run tests
+          command: bundle exec rake spec
+      - slack-fail:
+          message: "RSpec"
+
+  snyk_scan:
+    resource_class: medium
+    docker:
+      - image: python:3.11
+    environment:
+      SLACK_CHANNEL: *slack_channel
+    steps:
+      - checkout
+      - run:
+          name: apt-get install sudo
+          command: apt-get update && apt-get -y install sudo
+      - snyk/scan: # Dependency Analysis
+          organization: commerce-UnfqhVNTrxXdR59o2koHNr
+          additional-arguments: --report --target-reference="$CIRCLE_BRANCH"
+          severity-threshold: critical
+          command: test
+      - snyk/scan: # Static Code Analysis
+          organization: commerce-UnfqhVNTrxXdR59o2koHNr
+          additional-arguments: --target-reference="$CIRCLE_BRANCH"
+          severity-threshold: medium
+          # The orb also runs `snyk monitor` after each scan. The dependency
+          # step above already monitors this single Gemfile.lock; a second
+          # monitor on `code test` is redundant and failed fizz with SNYK-CLI-0000.
+          monitor-on-build: false
+          command: code test
+      - slack-fail:
+          message: "Snyk scan"
+
+  notify_master:
+    docker:
+      - image: cimg/base:current
+    environment:
+      SLACK_CHANNEL: *slack_channel
+    steps:
+      - slack-pass:
+          message: "merged to master"
+
+workflows:
+  ci:
+    jobs:
+      - test:
+          context:
+            - slack
+      - snyk_scan:
+          context:
+            - snyk
+            - slack
+      - notify_master:
+          requires: [test, snyk_scan]
+          context:
+            - slack
